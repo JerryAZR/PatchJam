@@ -89,6 +89,14 @@ This implementation deliberately embraces **mismatched truth vs belief**
 behavior and allows puzzle exploits like unlocking hidden containers, leaking
 rules, or pulling data from unreachable memory.
 
+## Item Types
+
+* **Tags** - Does nothing on its own, but may trigger actions of containers.
+* **Numbers** - Participates in arithmetic operations.
+* **Physical Objects** - Can be instantiated in the scene.
+* **Weights** - Can add weigths to the container and enable interactions with
+  pressure plates.
+
 ## Example
 
 ```mermaid
@@ -177,3 +185,18 @@ Finally, player "Dumps All" items into the *Big Box*.
 |-----------|----------------------|--------------|-------|-------|-------|
 | Items     | A,B,C,D,E,F,G,H,null |              |       |       |       |
 | Count     | 9                    | 0            | -2    | 0     | 1     |
+
+## Beyond the Last Container
+
+When items overflow past the last container, instead of vanishing they can spill
+into special sinks that change the game state.
+
+* A **Null Sink** creates placeholder “null” items, useful as strange resources
+  or corrupt clutter.
+* A **Rules Container** corrupts gameplay logic, rewriting item behaviors or win
+  conditions in unexpected ways.
+* A **Scene Objects Container** directly alters the environment, spawning
+  objects, toggling doors, or triggering world changes.
+
+These sinks turn overflow into a puzzle mechanic, letting players exploit bugs
+to bend both rules and reality.
