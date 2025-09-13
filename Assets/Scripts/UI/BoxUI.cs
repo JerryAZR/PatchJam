@@ -36,9 +36,11 @@ public class BoxUI : MonoBehaviour
             _panel.SetActive(false);
         else
         {
-            _panel.SetActive(true);
+            //_panel.SetActive(true);
             UpdateGrids();
         }
+
+        ContainerBase.OnDataTransfer += UpdateGrids;
     }
 
     void Update()
@@ -122,8 +124,8 @@ public class BoxUI : MonoBehaviour
     public void AddAllButton()
     {
         PlayerBag.Instance.TransferAll(_container);
-        UpdateGrids();
-        PlayerBag.Instance.GetComponent<BoxUI>()?.UpdateGrids();
+        // UpdateGrids();
+        // PlayerBag.Instance.GetComponent<BoxUI>()?.UpdateGrids();
         _container.DebugPrint();
         PlayerBag.Instance.DebugPrint();
     }
@@ -131,8 +133,8 @@ public class BoxUI : MonoBehaviour
     public void DumpAllButton()
     {
         _container.TransferAll(PlayerBag.Instance);
-        UpdateGrids();
-        PlayerBag.Instance.GetComponent<BoxUI>()?.UpdateGrids();
+        // UpdateGrids();
+        // PlayerBag.Instance.GetComponent<BoxUI>()?.UpdateGrids();
         _container.DebugPrint();
         PlayerBag.Instance.DebugPrint();
     }

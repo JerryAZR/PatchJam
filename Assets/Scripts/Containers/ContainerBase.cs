@@ -18,6 +18,8 @@ public class ContainerBase : MonoBehaviour
 
     public bool IsLive { get; private set; } = false;
 
+    public static Action OnDataTransfer;
+
     protected virtual void Awake()
     {
         IsLive = true;
@@ -59,6 +61,7 @@ public class ContainerBase : MonoBehaviour
                 destination.Add(item);
             }
         }
+        OnDataTransfer?.Invoke();
     }
 
     /// <summary>
