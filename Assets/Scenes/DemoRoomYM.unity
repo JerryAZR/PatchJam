@@ -628,6 +628,11 @@ PrefabInstance:
       propertyPath: _capacity
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5785734559292470310, guid: 5ca5b6d0aaa08f7479bf9e2875773f46,
+        type: 3}
+      propertyPath: _initialItems.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6713798881647072335, guid: 5ca5b6d0aaa08f7479bf9e2875773f46,
         type: 3}
       propertyPath: m_Name
