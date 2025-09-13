@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: C
   Weight: 0
+  Icon: {fileID: 1529529531, guid: 7a464f671f620cd4daab5e0f0c1b0385, type: 3}

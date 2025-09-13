@@ -4,5 +4,6 @@ using UnityEngine;
 public class ItemBaseSO : ScriptableObject
 {
     public string Name;
-    public float Weight;
+    [Min(0)] public float Weight;
+    public Sprite Icon;
 }

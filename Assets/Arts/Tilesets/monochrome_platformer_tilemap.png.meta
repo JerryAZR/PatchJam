@@ -2548,7 +2548,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome_tilemap_transparent_packed_95
+      name: key0
       rect:
         serializedVersion: 2
         x: 256
@@ -2570,7 +2570,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome_tilemap_transparent_packed_96
+      name: key1
       rect:
         serializedVersion: 2
         x: 272
@@ -9185,6 +9185,8 @@ TextureImporter:
     nameFileIdTable:
       box_closed: 1576009339
       box_open: 1929896608
+      key0: -5261841371278959300
+      key1: 6064851471948101168
       monochrome_tilemap_transparent_packed_0: 386844166813859994
       monochrome_tilemap_transparent_packed_1: -6598207723498190877
       monochrome_tilemap_transparent_packed_10: -2168402976119202626
@@ -9555,8 +9557,6 @@ TextureImporter:
       monochrome_tilemap_transparent_packed_92: -1490684304096393911
       monochrome_tilemap_transparent_packed_93: 2300129445809011254
       monochrome_tilemap_transparent_packed_94: 4754638172806558620
-      monochrome_tilemap_transparent_packed_95: -5261841371278959300
-      monochrome_tilemap_transparent_packed_96: 6064851471948101168
       monochrome_tilemap_transparent_packed_97: -1236087073102927810
       monochrome_tilemap_transparent_packed_98: 7524711804282467429
       monochrome_tilemap_transparent_packed_99: -1475902053494224464
