@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,12 @@ public class BoxUI : MonoBehaviour
     [SerializeField] private GameObject _panel;
     [SerializeField] private GameObject _gridParent;
     [SerializeField] private GameObject _gridPrefab;
+
+    [SerializeField] private TMP_Text _countText;
+    [SerializeField] private TMP_Text _weightText;
+
+    private int _count;
+    private int _weight;
 
     public void Start()
     {
@@ -94,6 +101,22 @@ public class BoxUI : MonoBehaviour
         //         gridUI.sprite = item.Icon;
         //     }
         // }
+        if (_countText != null)
+            UpdateCount(); 
+        if (_weight != null)
+            UpdateWeight();
+    }
+
+    private void UpdateCount()
+    {
+        _count = _container.ItemCount;
+        _countText.text = $"Count: {_count}/{_container.Capacity}";
+    }
+
+    private void UpdateWeight()
+    {
+        _weight = 0;
+        _weightText.text = $"Weight: {_weight}";
     }
 
     public void AddAllButton()
