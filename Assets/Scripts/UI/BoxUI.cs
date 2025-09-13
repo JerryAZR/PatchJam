@@ -103,7 +103,7 @@ public class BoxUI : MonoBehaviour
         // }
         if (_countText != null)
             UpdateCount(); 
-        if (_weight != null)
+        if (_weightText != null)
             UpdateWeight();
     }
 
