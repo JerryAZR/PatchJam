@@ -16,7 +16,11 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void OnBeginDrag(PointerEventData eventData)
     {
         dragIcon = Instantiate(transform as RectTransform, dragCanvas.transform);
+        dragIcon.sizeDelta = new Vector2(50, 50);
         dragIcon.SetAsLastSibling();
+        dragIcon.anchorMin = new Vector2(0.5f, 0.5f);
+        dragIcon.anchorMax = new Vector2(0.5f, 0.5f);
+        dragIcon.pivot = new Vector2(0.5f, 0.5f);
         dragIcon.GetComponent<CanvasGroup>().blocksRaycasts = false;
 
         GetComponent<CanvasGroup>().alpha = 0.5f;
@@ -25,7 +29,14 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void OnDrag(PointerEventData eventData)
     {
         if (dragIcon != null)
-            dragIcon.position = eventData.position;
+        {
+            Vector2 anchorPos= eventData.position - new Vector2((dragCanvas.transform as RectTransform).position.x, (dragCanvas.transform as RectTransform).position.y);
+		    anchorPos= new Vector2(anchorPos.x / (dragCanvas.transform as RectTransform).lossyScale.x, anchorPos.y / (dragCanvas.transform as RectTransform).lossyScale.y);
+            Vector2 localPoint;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(dragCanvas.transform as RectTransform, eventData.position, eventData.pressEventCamera, out localPoint);
+            dragIcon.anchoredPosition = anchorPos;
+        }
+            //dragIcon.position = eventData.position;
     }
 
     public void OnEndDrag(PointerEventData eventData)
