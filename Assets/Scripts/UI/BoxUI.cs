@@ -25,15 +25,24 @@ public class BoxUI : MonoBehaviour
             _gridParent = _panel.transform.Find("GridParent").gameObject;
         }
 
-        _panel.SetActive(false);
+        if (this.gameObject.name != "PlayerBag")
+            _panel.SetActive(false);
+        else
+        {
+            _panel.SetActive(true);
+            UpdateGrids();
+        }
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B))
+        if (this.gameObject.name != "PlayerBag")
         {
-            _panel.SetActive(!_panel.activeSelf);
-            UpdateGrids();
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                _panel.SetActive(!_panel.activeSelf);
+                UpdateGrids();
+            }
         }
     }
 
@@ -52,15 +61,27 @@ public class BoxUI : MonoBehaviour
         for (var i = 0; i < _container.Capacity; i++)
         {
             GameObject grid = Instantiate(_gridPrefab, _gridParent.transform);
+
+            var gridControl = grid.GetComponent<GridUI>();
+            if (gridControl != null)
+            {
+                gridControl.containerBase = _container;
+                gridControl.boxUI = this;
+                gridControl.index = i;
+            }
+
             var gridUI = grid.GetComponent<Image>();
             if (gridUI != null)
             {
+                if (_container.Slots == null) continue;
                 if (_container.Slots[i] == null)
                 {
                     gridUI.sprite = null;
+
                     continue;
                 }
                 gridUI.sprite = _container.Slots[i].Icon;
+                gridControl.so = _container.Slots[i];
             }
         }
         // foreach (var item in _container.Slots)
@@ -79,6 +100,7 @@ public class BoxUI : MonoBehaviour
     {
         PlayerBag.Instance.TransferAll(_container);
         UpdateGrids();
+        PlayerBag.Instance.GetComponent<BoxUI>()?.UpdateGrids();
         _container.DebugPrint();
         PlayerBag.Instance.DebugPrint();
     }
@@ -87,6 +109,7 @@ public class BoxUI : MonoBehaviour
     {
         _container.TransferAll(PlayerBag.Instance);
         UpdateGrids();
+        PlayerBag.Instance.GetComponent<BoxUI>()?.UpdateGrids();
         _container.DebugPrint();
         PlayerBag.Instance.DebugPrint();
     }
