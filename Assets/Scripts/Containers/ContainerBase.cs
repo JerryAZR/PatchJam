@@ -12,6 +12,8 @@ public class ContainerBase : MonoBehaviour
     public int ItemCount { get; private set; }
     protected ArraySegment<ItemBaseSO> _slots;
 
+    public ArraySegment<ItemBaseSO> Slots => _slots;
+
     [SerializeField] protected List<ItemBaseSO> _initialItems;
 
     public bool IsLive { get; private set; } = false;
