@@ -30,13 +30,10 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         if (dragIcon != null)
         {
-            Vector2 anchorPos= eventData.position - new Vector2((dragCanvas.transform as RectTransform).position.x, (dragCanvas.transform as RectTransform).position.y);
-		    anchorPos= new Vector2(anchorPos.x / (dragCanvas.transform as RectTransform).lossyScale.x, anchorPos.y / (dragCanvas.transform as RectTransform).lossyScale.y);
             Vector2 localPoint;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(dragCanvas.transform as RectTransform, eventData.position, eventData.pressEventCamera, out localPoint);
-            dragIcon.anchoredPosition = anchorPos;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(dragCanvas.transform as RectTransform, eventData.position, dragCanvas.worldCamera, out localPoint);
+            dragIcon.anchoredPosition = localPoint;
         }
-            //dragIcon.position = eventData.position;
     }
 
     public void OnEndDrag(PointerEventData eventData)
