@@ -49,16 +49,30 @@ public class BoxUI : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-        foreach (var item in _container.Slots)
+        for (var i = 0; i < _container.Capacity; i++)
         {
-            if (item == null) continue;
             GameObject grid = Instantiate(_gridPrefab, _gridParent.transform);
             var gridUI = grid.GetComponent<Image>();
             if (gridUI != null)
             {
-                gridUI.sprite = item.Icon;
+                if (_container.Slots[i] == null)
+                {
+                    gridUI.sprite = null;
+                    continue;
+                }
+                gridUI.sprite = _container.Slots[i].Icon;
             }
         }
+        // foreach (var item in _container.Slots)
+        // {
+        //     if (item == null) continue;
+        //     GameObject grid = Instantiate(_gridPrefab, _gridParent.transform);
+        //     var gridUI = grid.GetComponent<Image>();
+        //     if (gridUI != null)
+        //     {
+        //         gridUI.sprite = item.Icon;
+        //     }
+        // }
     }
 
     public void AddAllButton()
