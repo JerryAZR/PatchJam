@@ -49,7 +49,7 @@ namespace MoreMountains.CorgiEngine
 	{
 		public CorgiEngineEventTypes EventType;
 		public Character OriginCharacter;
-		
+
 		/// <summary>
 		/// Initializes a new instance of the <see cref="MoreMountains.CorgiEngine.CorgiEngineEvent"/> struct.
 		/// </summary>
@@ -59,7 +59,7 @@ namespace MoreMountains.CorgiEngine
 			EventType = eventType;
 			OriginCharacter = originCharacter;
 		}
-        
+
 		static CorgiEngineEvent e;
 		public static void Trigger(CorgiEngineEventTypes eventType, Character originCharacter = null)
 		{
@@ -67,7 +67,7 @@ namespace MoreMountains.CorgiEngine
 			e.OriginCharacter = originCharacter;
 			MMEventManager.TriggerEvent(e);
 		}
-	} 
+	}
 
 	/// <summary>
 	/// A list of the methods available to change the current score
@@ -115,7 +115,7 @@ namespace MoreMountains.CorgiEngine
 			PointsMethod = pointsMethod;
 			Points = points;
 		}
-        
+
 		static CorgiEnginePointsEvent e;
 		public static void Trigger(PointsMethods pointsMethod, int points)
 		{
@@ -149,11 +149,11 @@ namespace MoreMountains.CorgiEngine
 	/// The game manager is a persistent singleton that handles points and time
 	/// </summary>
 	[AddComponentMenu("Corgi Engine/Managers/Game Manager")]
-	public class GameManager : 	MMPersistentSingleton<GameManager>, 
-		MMEventListener<MMGameEvent>, 
-		MMEventListener<CorgiEngineEvent>, 
+	public class GameManager : 	MMPersistentSingleton<GameManager>,
+		MMEventListener<MMGameEvent>,
+		MMEventListener<CorgiEngineEvent>,
 		MMEventListener<CorgiEnginePointsEvent>
-	{		
+	{
 		[Header("Settings")]
 
 		/// the target frame rate for the game
@@ -165,10 +165,10 @@ namespace MoreMountains.CorgiEngine
 		/// the maximum amount of lives the character can currently have
 		[Tooltip("the maximum amount of lives the character can currently have")]
 		public int MaximumLives = 0;
-		/// the current number of lives 
+		/// the current number of lives
 		[Tooltip("the current number of lives ")]
 		public int CurrentLives = 0;
-		
+
 		[Header("Game Over")]
 		/// if this is true, lives will be reset on game over
 		[Tooltip("if this is true, lives will be reset on game over")]
@@ -189,7 +189,7 @@ namespace MoreMountains.CorgiEngine
 		/// the current number of game points
 		public int Points { get; private set; }
 		/// true if the game is currently paused
-		public bool Paused { get; set; } 
+		public bool Paused { get; set; }
 		// true if we've stored a map position at least once
 		public bool StoredLevelMapPosition{ get; set; }
 		/// the current player
@@ -220,9 +220,9 @@ namespace MoreMountains.CorgiEngine
 		{
 			Application.targetFrameRate = TargetFrameRate;
 			_initialCurrentLives = CurrentLives;
-			_initialMaximumLives = MaximumLives;            
+			_initialMaximumLives = MaximumLives;
 		}
-					
+
 		/// <summary>
 		/// this method resets the whole game manager
 		/// </summary>
@@ -233,7 +233,7 @@ namespace MoreMountains.CorgiEngine
 			Paused = false;
 			GUIManager.Instance.RefreshPoints ();
 			PointsOfEntry?.Clear ();
-		}	
+		}
 
 		/// <summary>
 		/// Use this method to decrease the current number of lives
@@ -266,7 +266,7 @@ namespace MoreMountains.CorgiEngine
 		public virtual void AddLives(int lives, bool increaseCurrent)
 		{
 			MaximumLives += lives;
-			if (increaseCurrent) 
+			if (increaseCurrent)
 			{
 				CurrentLives += lives;
 			}
@@ -281,7 +281,7 @@ namespace MoreMountains.CorgiEngine
 			CurrentLives = _initialCurrentLives ;
 			MaximumLives = _initialMaximumLives ;
 		}
-			
+
 		/// <summary>
 		/// Adds the points in parameters to the current game points.
 		/// </summary>
@@ -291,7 +291,7 @@ namespace MoreMountains.CorgiEngine
 			Points += pointsToAdd;
 			GUIManager.Instance.RefreshPoints ();
 		}
-		
+
 		/// <summary>
 		/// use this to set the current points to the one you pass as a parameter
 		/// </summary>
@@ -310,25 +310,25 @@ namespace MoreMountains.CorgiEngine
 				_inventoryInputManager.enabled = status;
 			}
 		}
-		
+
 		/// <summary>
 		/// Pauses the game or unpauses it depending on the current state
 		/// </summary>
 		public virtual void Pause(PauseMethods pauseMethod = PauseMethods.PauseMenu)
-		{	
+		{
 			if ((pauseMethod == PauseMethods.PauseMenu) && _inventoryOpen)
 			{
 				return;
 			}
 
-			// if time is not already stopped		
+			// if time is not already stopped
 			if (Time.timeScale>0.0f)
 			{
 				MMTimeScaleEvent.Trigger(MMTimeScaleMethods.For, 0f, 0f, false, 0f, true);
 				Instance.Paused=true;
 				if ((GUIManager.HasInstance) && (pauseMethod == PauseMethods.PauseMenu))
 				{
-					GUIManager.Instance.SetPause(true);	
+					GUIManager.Instance.SetPause(true);
 					_pauseMenuOpen = true;
 					SetActiveInventoryInputManager (false);
 				}
@@ -341,7 +341,7 @@ namespace MoreMountains.CorgiEngine
 			{
 				UnPause(pauseMethod);
 				CorgiEngineEvent.Trigger(CorgiEngineEventTypes.UnPause);
-			}		
+			}
 			LevelManager.Instance.ToggleCharacterPause();
 		}
 
@@ -353,7 +353,7 @@ namespace MoreMountains.CorgiEngine
 			MMTimeScaleEvent.Trigger(MMTimeScaleMethods.Unfreeze, 1f, 0f, false, 0f, false);
 			Instance.Paused = false;
 			if ((GUIManager.HasInstance) && (pauseMethod == PauseMethods.PauseMenu))
-			{ 
+			{
 				GUIManager.Instance.SetPause(false);
 				_pauseMenuOpen = false;
 				SetActiveInventoryInputManager (true);
@@ -394,10 +394,10 @@ namespace MoreMountains.CorgiEngine
 						point.PointOfEntryIndex = entryIndex;
 						return;
 					}
-				}	
+				}
 			}
 
-			PointsOfEntry.Add (new PointsOfEntryStorage (levelName, entryIndex, facingDirection));
+			PointsOfEntry.Add(new PointsOfEntryStorage(levelName, entryIndex, facingDirection));
 		}
 
 		/// <summary>
@@ -465,13 +465,13 @@ namespace MoreMountains.CorgiEngine
 				Destroy(PersistentCharacter.gameObject);
 				SetPersistentCharacter(null);
 			}
-			
+
 
 			if (LevelManager.Instance.Players[0] != null)
 			{
 				if (LevelManager.Instance.Players[0].gameObject.MMGetComponentNoAlloc<CharacterPersistence>() != null)
 				{
-					Destroy(LevelManager.Instance.Players[0].gameObject);	
+					Destroy(LevelManager.Instance.Players[0].gameObject);
 				}
 			}
 		}
@@ -533,11 +533,11 @@ namespace MoreMountains.CorgiEngine
 				case CorgiEngineEventTypes.Pause:
 					Pause ();
 					break;
-				
+
 				case CorgiEngineEventTypes.UnPause:
 					UnPause ();
 					break;
-				
+
 				case CorgiEngineEventTypes.PauseNoMenu:
 					Pause(PauseMethods.NoPauseMenu);
 					break;

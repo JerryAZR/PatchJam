@@ -224,7 +224,7 @@ namespace MoreMountains.CorgiEngine
                     ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""ae461515-11b0-4cc9-b221-92ed2df4118e"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false

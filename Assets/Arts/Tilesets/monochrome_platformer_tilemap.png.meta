@@ -1668,7 +1668,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome_tilemap_transparent_packed_55
+      name: door0
       rect:
         serializedVersion: 2
         x: 256
@@ -1690,7 +1690,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome_tilemap_transparent_packed_56
+      name: door1
       rect:
         serializedVersion: 2
         x: 272
@@ -1712,7 +1712,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome_tilemap_transparent_packed_57
+      name: door2
       rect:
         serializedVersion: 2
         x: 288
@@ -1734,7 +1734,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monochrome_tilemap_transparent_packed_58
+      name: door3
       rect:
         serializedVersion: 2
         x: 304
@@ -9185,6 +9185,10 @@ TextureImporter:
     nameFileIdTable:
       box_closed: 1576009339
       box_open: 1929896608
+      door0: 4152707749419006214
+      door1: 1255338278792257231
+      door2: -8452106684944646491
+      door3: 7195201074598265153
       key0: -5261841371278959300
       key1: 6064851471948101168
       monochrome_tilemap_transparent_packed_0: 386844166813859994
@@ -9513,10 +9517,6 @@ TextureImporter:
       monochrome_tilemap_transparent_packed_52: 8233159934690089806
       monochrome_tilemap_transparent_packed_53: -3388227312432987789
       monochrome_tilemap_transparent_packed_54: 8378994975046901990
-      monochrome_tilemap_transparent_packed_55: 4152707749419006214
-      monochrome_tilemap_transparent_packed_56: 1255338278792257231
-      monochrome_tilemap_transparent_packed_57: -8452106684944646491
-      monochrome_tilemap_transparent_packed_58: 7195201074598265153
       monochrome_tilemap_transparent_packed_59: -5265677607624614547
       monochrome_tilemap_transparent_packed_6: -8160376994236589264
       monochrome_tilemap_transparent_packed_60: -8858449594156527337

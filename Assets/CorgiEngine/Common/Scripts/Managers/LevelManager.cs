@@ -127,7 +127,7 @@ namespace MoreMountains.CorgiEngine
 		/// whether to use a 3D or 2D collider as level bounds, this will be used by Cinemachine confiners
 		[Tooltip("whether to use a 3D or 2D collider as level bounds")]
 		public BoundsModes BoundsMode = BoundsModes.TwoD;
-		
+
 		/// the level limits, camera and player won't go beyond this point.
 		[Tooltip("the level limits, camera and player won't go beyond this point.")]
 		public Bounds LevelBounds = new Bounds(Vector3.zero,Vector3.one*10);
@@ -136,7 +136,7 @@ namespace MoreMountains.CorgiEngine
 		public bool ConvertToColliderBoundsButton;
 		public Collider BoundsCollider { get; protected set; }
 		public Collider2D BoundsCollider2D { get; protected set; }
-		
+
 		[Header("Scene Loading")]
 		/// the method to use to load the destination level
 		[Tooltip("the method to use to load the destination level")]
@@ -150,11 +150,11 @@ namespace MoreMountains.CorgiEngine
 		[MMEnumCondition("LoadingSceneMode", (int)MMLoadScene.LoadingSceneModes.MMAdditiveSceneLoadingManager)]
 		public MMAdditiveSceneLoadingManagerSettings AdditiveLoadingSettings;
 
-		[Header("Feedbacks")] 
+		[Header("Feedbacks")]
 		/// if this is true, an event will be triggered on player instantiation to set the range target of all feedbacks to it
 		[Tooltip("if this is true, an event will be triggered on player instantiation to set the range target of all feedbacks to it")]
 		public bool SetPlayerAsFeedbackRangeCenter = false;
-        
+
 		/// the elapsed time since the start of the level
 		public virtual TimeSpan RunningTime { get { return DateTime.UtcNow - _started ;}}
 		public virtual CameraController LevelCameraController { get; set; }
@@ -168,7 +168,7 @@ namespace MoreMountains.CorgiEngine
 		protected BoxCollider _collider;
 		protected BoxCollider2D _collider2D;
 		protected Bounds _originalBounds;
-		
+
 		/// <summary>
 		/// Statics initialization to support enter play modes
 		/// </summary>
@@ -247,22 +247,24 @@ namespace MoreMountains.CorgiEngine
 		/// </summary>
 		public virtual void Start()
 		{
+			MMCameraEvent.Trigger(MMCameraEventTypes.SetConfiner, null, BoundsCollider, BoundsCollider2D);
+
 			InstantiatePlayableCharacters ();
 			if (Players == null || Players.Count == 0) { return; }
 
 			Initialization ();
 
-			
+
 			CorgiEngineEvent.Trigger(CorgiEngineEventTypes.SpawnCharacterStarts);
 
 			// we handle the spawn of the character(s)
 			if (Players.Count == 1)
 			{
-				SpawnSingleCharacter ();
+				SpawnSingleCharacter();
 			}
 			else
 			{
-				SpawnMultipleCharacters ();
+				SpawnMultipleCharacters();
 			}
 
 			LevelGUIStart();
@@ -276,8 +278,7 @@ namespace MoreMountains.CorgiEngine
 			{
 				MMSetFeedbackRangeCenterEvent.Trigger(Players[0].transform);
 			}
-			
-			MMCameraEvent.Trigger(MMCameraEventTypes.SetConfiner, null, BoundsCollider, BoundsCollider2D);
+
 			MMCameraEvent.Trigger(MMCameraEventTypes.SetTargetCharacter, Players[0]);
 			MMCameraEvent.Trigger(MMCameraEventTypes.StartFollowing);
 		}
@@ -366,7 +367,7 @@ namespace MoreMountains.CorgiEngine
 							continue;
 						}
 					}
-					
+
 					Vector3 vectorDistance = ((MonoBehaviour) listener).transform.position - Checkpoints[i].transform.position;
 
 					float distance = 0;
@@ -546,9 +547,9 @@ namespace MoreMountains.CorgiEngine
 			CorgiEngineEvent.Trigger(CorgiEngineEventTypes.LevelEnd);
 			if (save)
 			{
-				MMGameEvent.Trigger("Save");	
+				MMGameEvent.Trigger("Save");
 			}
-			
+
 			if (fadeOut)
 			{
 				if ((Players != null) && (Players.Count > 0))
@@ -560,7 +561,7 @@ namespace MoreMountains.CorgiEngine
 					MMFadeInEvent.Trigger(OutroFadeDuration, FadeTween, FaderID, true, Vector3.zero);
 				}
 			}
-            
+
 			StartCoroutine(GotoLevelCo(levelName, fadeOut));
 		}
 
@@ -605,7 +606,7 @@ namespace MoreMountains.CorgiEngine
 			switch (LoadingSceneMode)
 			{
 				case MMLoadScene.LoadingSceneModes.UnityNative:
-					SceneManager.LoadScene(destinationScene);			        
+					SceneManager.LoadScene(destinationScene);
 					break;
 				case MMLoadScene.LoadingSceneModes.MMSceneLoadingManager:
 					MMSceneLoadingManager.LoadScene(destinationScene, LoadingSceneName);
@@ -638,7 +639,7 @@ namespace MoreMountains.CorgiEngine
 					{
 						CorgiEngineEvent.Trigger(CorgiEngineEventTypes.GameOver);
 						Cleanup();
-						
+
 						if ((GameManager.Instance.GameOverScene != null) && (GameManager.Instance.GameOverScene != ""))
 						{
 							StartCoroutine(LoadGameOverSceneCo());
@@ -695,12 +696,12 @@ namespace MoreMountains.CorgiEngine
 			yield return new WaitForSeconds(RespawnDelay);
 
 			MMCameraEvent.Trigger(MMCameraEventTypes.StartFollowing);
-			
+
 			if (CurrentCheckPoint != null)
 			{
 				CurrentCheckPoint.SpawnPlayer(Players[0]);
 			}
-            
+
 			_started = DateTime.UtcNow;
 			// we send a new points event for the GameManager to catch (and other classes that may listen to it too)
 			if (ResetPointsOnRestart)
@@ -820,7 +821,7 @@ namespace MoreMountains.CorgiEngine
 			if ((BoundsCollider == null) && (BoundsCollider2D == null))
 			{
 				// set transform
-				this.transform.position = LevelBounds.center;    
+				this.transform.position = LevelBounds.center;
 			}
 
 			if ((BoundsCollider == null) && (BoundsMode == BoundsModes.ThreeD))
@@ -851,7 +852,7 @@ namespace MoreMountains.CorgiEngine
 				Rigidbody2D rb = this.gameObject.AddComponent<Rigidbody2D>();
 				rb.bodyType = RigidbodyType2D.Kinematic;
 				rb.simulated = false;
-		        
+
 				// create collider
 				_collider2D = this.gameObject.AddComponent<BoxCollider2D>();
 				// set size
@@ -864,11 +865,11 @@ namespace MoreMountains.CorgiEngine
 				CompositeCollider2D composite = this.gameObject.AddComponent<CompositeCollider2D>();
 				composite.geometryType = CompositeCollider2D.GeometryType.Polygons;
 			}
-	        
+
 			BoundsCollider = this.gameObject.GetComponent<Collider>();
 			BoundsCollider2D = this.gameObject.GetComponent<CompositeCollider2D>();
 		}
-		
+
 		/// <summary>
 		/// Catches CorgiEngineEvents and acts on them, playing the corresponding sounds
 		/// </summary>
