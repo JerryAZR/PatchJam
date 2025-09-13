@@ -206,14 +206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Box0
   _capacity: 8
-  _initialItems:
-  - {fileID: 11400000, guid: c066d46340dc1d24caefd2d2b4c6f0a6, type: 2}
-  - {fileID: 11400000, guid: f3c2b916c9d60e64f9dad276c8593f2c, type: 2}
-  - {fileID: 11400000, guid: e9467ba081e4d864caa31092aa0e5d7b, type: 2}
-  - {fileID: 11400000, guid: e9467ba081e4d864caa31092aa0e5d7b, type: 2}
-  - {fileID: 11400000, guid: c066d46340dc1d24caefd2d2b4c6f0a6, type: 2}
-  - {fileID: 11400000, guid: e9467ba081e4d864caa31092aa0e5d7b, type: 2}
-  - {fileID: 11400000, guid: f3c2b916c9d60e64f9dad276c8593f2c, type: 2}
+  _initialItems: []
 --- !u!114 &8466290407069659746
 MonoBehaviour:
   m_ObjectHideFlags: 0
