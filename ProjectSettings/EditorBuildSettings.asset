@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/LevelSelectionRoom.unity
+    guid: 844664eb019a6ad45bc95376c551af94
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: 025c2c80b37b07847ac54159b2c8fe32
+  - enabled: 1
+    path: Assets/Scenes/TestLevel0.unity
+    guid: 974cd963e641bb541947cdff7fdee6de
+  - enabled: 1
     path: Assets/CorgiEngine/Demos/StartScreen/SplashScreen.unity
     guid: 7b96552fd1198fa4eaae54a2f975645e
   - enabled: 1
@@ -224,11 +233,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/CorgiEngine/ThirdParty/MoreMountains/MMTools/Core/MMSceneLoading/LoadingScreens/MMAdditiveLoadingScreenSimple.unity
     guid: 945e5b97212e8e74ebcd35bddde3970c
-  - enabled: 1
-    path: Assets/Scenes/LevelSelectionRoom.unity
-    guid: 844664eb019a6ad45bc95376c551af94
-  - enabled: 1
-    path: Assets/Scenes/TestLevel0.unity
-    guid: 974cd963e641bb541947cdff7fdee6de
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

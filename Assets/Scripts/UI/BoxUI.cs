@@ -43,6 +43,11 @@ public class BoxUI : MonoBehaviour
         ContainerBase.OnDataTransfer += UpdateGrids;
     }
 
+    void OnDestroy()
+    {
+        ContainerBase.OnDataTransfer -= UpdateGrids;
+    }
+
     void Update()
     {
         if (this.gameObject.name != "PlayerBag")
@@ -104,7 +109,7 @@ public class BoxUI : MonoBehaviour
         //     }
         // }
         if (_countText != null)
-            UpdateCount(); 
+            UpdateCount();
         if (_weightText != null)
             UpdateWeight();
     }
