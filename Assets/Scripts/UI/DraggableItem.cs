@@ -49,7 +49,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             if (grid != null)
             {
                 grid.OnDropItem(transform.GetComponent<GridUI>().containerBase, transform.GetComponent<GridUI>().index);
-                //Destroy(dragIcon.gameObject);
+                Destroy(dragIcon.gameObject);
                 return;
             }
         }
