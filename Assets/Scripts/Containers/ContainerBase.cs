@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class ContainerBase : MonoBehaviour
+public class ContainerBase : MonoBehaviour, IWeighted
 {
     public string Name => _name;
     [SerializeField] protected string _name;
@@ -14,9 +14,16 @@ public class ContainerBase : MonoBehaviour
 
     public ArraySegment<ItemBaseSO> Slots => _slots;
 
+    protected ArraySegment<ItemBaseSO> _viewSlots;
+
+    public ArraySegment<ItemBaseSO> ViewSlots => _viewSlots;
+
     [SerializeField] protected List<ItemBaseSO> _initialItems;
 
     public bool IsLive { get; private set; } = false;
+
+    public float Weight => _weight;
+    private float _weight;
 
     public static Action OnDataTransfer;
 
@@ -25,11 +32,21 @@ public class ContainerBase : MonoBehaviour
         IsLive = true;
     }
 
+    protected virtual void Start()
+    {
+        OnDataTransfer += UpdateInternals;
+    }
+
+    protected virtual void OnDestroy()
+    {
+        OnDataTransfer -= UpdateInternals;
+    }
+
     public virtual void Init(ItemBaseSO[] backingStore, int start)
     {
         int tailLength = backingStore.Length - start;
         _slots = new ArraySegment<ItemBaseSO>(backingStore, start, tailLength);
-
+        _viewSlots = new ArraySegment<ItemBaseSO>(backingStore, start, Capacity);
 
         if (_initialItems.Count > Capacity)
         {
@@ -40,6 +57,7 @@ public class ContainerBase : MonoBehaviour
             _initialItems.CopyTo(backingStore, start);
             ItemCount = _initialItems.Count;
             DebugPrint();
+            UpdateInternals();
         }
     }
 
@@ -84,6 +102,8 @@ public class ContainerBase : MonoBehaviour
             ItemCount++;
             destination.ItemCount--;
         }
+        UpdateInternals();
+        destination.UpdateInternals();
     }
 
     /// <summary>
@@ -115,5 +135,10 @@ public class ContainerBase : MonoBehaviour
         Debug.Log($"{Name}({ItemCount}): [{string.Join(",", contents)}]");
     }
 
+    protected virtual void UpdateInternals()
+    {
+        _weight = ViewSlots.Where(item => item != null).Sum(item => item.Weight);
+        Debug.Log($"Weight of {Name} is now {_weight}");
+    }
 }
 

@@ -10,7 +10,7 @@ public class LockedDoor : ContainerBase
     void Update()
     {
         if (Open) return;
-        foreach (ItemBaseSO item in _slots)
+        foreach (ItemBaseSO item in ViewSlots)
         {
             if (item == _key)
             {
