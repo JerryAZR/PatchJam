@@ -545,10 +545,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelExit
       objectReference: {fileID: 0}
+    - target: {fileID: 5949443999819379944, guid: 09abe10838f7c094eb44ebae2cd0eba7,
+        type: 3}
+      propertyPath: PointOfEntryIndex
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6351990783886203706, guid: 09abe10838f7c094eb44ebae2cd0eba7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6
+      value: 5.75
       objectReference: {fileID: 0}
     - target: {fileID: 6351990783886203706, guid: 09abe10838f7c094eb44ebae2cd0eba7,
         type: 3}

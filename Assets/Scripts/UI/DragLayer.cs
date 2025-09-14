@@ -6,8 +6,6 @@ public class DragLayer : MonoBehaviour
     public static DragLayer Instance { get; private set; }
 
     [SerializeField] private GameObject _hintBoxUI;
-     
-    public Texture2D cursorSprite;
 
     public Texture2D cursorClickSprite2;
 
@@ -15,7 +13,6 @@ public class DragLayer : MonoBehaviour
     {
         Instance = this;
         ContainerBase.OnTransferReject += ShowHintBoxUI;
-        Cursor.SetCursor(cursorSprite, Vector2.zero, CursorMode.Auto);
     }
 
     void OnDestroy()

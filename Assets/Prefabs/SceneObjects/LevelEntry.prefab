@@ -560,7 +560,7 @@ MonoBehaviour:
   RequiresPlayerType: 1
   RequiresButtonActivationAbility: 1
   PreventJumpsWhileInThisZone: 0
-  Activable: 0
+  Activable: 1
   AutoActivation: 0
   AutoActivationAndButtonInteraction: 0
   CanOnlyActivateIfGrounded: 0
@@ -579,9 +579,9 @@ MonoBehaviour:
   InputKey: 102
   AnimationTriggerParameterName: 
   UseVisualPrompt: 1
-  ButtonPromptPrefab: {fileID: 114235008137252218, guid: bb1fc0f1f16f31248b9b4d80aa795609,
+  ButtonPromptPrefab: {fileID: 114235008137252218, guid: de024e95b0b116047abd2c8d7ec5e730,
     type: 3}
-  ButtonPromptText: F
+  ButtonPromptText: 
   ButtonPromptColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
   ButtonPromptTextColor: {r: 1, g: 1, b: 1, a: 1}
   AlwaysShowPrompt: 0
