@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelExit : MonoBehaviour
 {
@@ -6,5 +7,14 @@ public class LevelExit : MonoBehaviour
     public void NotifyLevelClear()
     {
         ProgressManager.Instance.SetLevelCleared(gameObject.scene.name);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            string sceneName = SceneManager.GetActiveScene().name;
+            SceneManager.LoadScene(sceneName);
+        }
     }
 }
