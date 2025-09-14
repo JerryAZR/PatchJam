@@ -757,7 +757,7 @@ PrefabInstance:
     - target: {fileID: 3900071981586572179, guid: 4d718536f6a29d746b13792aad4346b7,
         type: 3}
       propertyPath: m_Padding.m_Left
-      value: 30
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 4003672980569250869, guid: 4d718536f6a29d746b13792aad4346b7,
         type: 3}

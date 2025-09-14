@@ -39,11 +39,18 @@ public class BoxUI : MonoBehaviour
             _panel.SetActive(false);
         else
         {
+            SetInitialState();
             //_panel.SetActive(true);
             UpdateGrids();
         }
 
         ContainerBase.OnDataTransfer += UpdateGrids;
+    }
+
+    void SetInitialState()
+    {
+        float width = 560 * _container.Capacity / 8;
+        _panel.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(width, 80);
     }
 
     void OnDestroy()
