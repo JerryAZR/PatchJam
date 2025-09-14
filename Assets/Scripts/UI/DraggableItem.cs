@@ -22,6 +22,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         dragIcon.anchorMax = new Vector2(0.5f, 0.5f);
         dragIcon.pivot = new Vector2(0.5f, 0.5f);
         dragIcon.GetComponent<CanvasGroup>().blocksRaycasts = false;
+        dragIcon.GetComponent<Image>().enabled = false;
 
         GetComponent<CanvasGroup>().alpha = 0.5f;
     }
@@ -56,9 +57,12 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             GridUI grid = r.gameObject.GetComponent<GridUI>();
             if (grid != null)
             {
-                grid.OnDropItem(transform.GetComponent<GridUI>().containerBase, transform.GetComponent<GridUI>().index);
-                Destroy(dragIcon.gameObject);
-                return;
+                if (grid.containerBase.name == "PlayerBag" || transform.GetComponent<GridUI>().containerBase.name == "PlayerBag")
+                {
+                    grid.OnDropItem(transform.GetComponent<GridUI>().containerBase, transform.GetComponent<GridUI>().index);
+                    Destroy(dragIcon.gameObject);
+                    return;
+                }
             }
         }
 

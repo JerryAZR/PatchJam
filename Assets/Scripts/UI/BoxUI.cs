@@ -95,11 +95,11 @@ public class BoxUI : MonoBehaviour
             var gridUI = grid.transform.GetChild(0).GetComponent<Image>();
             if (gridUI != null)
             {
+                gridUI.gameObject.SetActive(false);
                 if (_container.Slots == null) continue;
                 if (_container.Slots[i] == null)
                 {
                     gridUI.sprite = null;
-                    gridUI.gameObject.SetActive(false);
                     //gridUI.transform.GetChild(0).gameObject.SetActive(true);
                     continue;
                 }
