@@ -7,8 +7,7 @@ using UnityEngine.Splines;
 
 public class ContainerBase : MonoBehaviour, IWeighted
 {
-    public string Name => _name;
-    [SerializeField] protected string _name;
+    public string Name => name;
     public int Capacity => _capacity;
     [SerializeField][Min(0)] protected int _capacity;
     public int ItemCount { get; private set; }
@@ -42,6 +41,14 @@ public class ContainerBase : MonoBehaviour, IWeighted
     protected virtual void Start()
     {
         OnDataTransfer += UpdateInternals;
+
+#if UNITY_EDITOR
+        // Validate hierarchy
+        if (GetComponentInParent<ContainerRoot>() == null)
+        {
+            Debug.LogError($"Container {name} must be placed under the ContainerRoot.");
+        }
+#endif
     }
 
     protected virtual void OnDestroy()
