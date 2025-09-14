@@ -162,13 +162,13 @@ public class BoxUI : MonoBehaviour
             if (this.gameObject.name != "PlayerBag")
             {
                 _panel.SetActive(true);
-                _dumpAllButton.gameObject.SetActive(true);
-                _addAllButton.gameObject.SetActive(true);
+                if (_dumpAllButton != null) _dumpAllButton.gameObject.SetActive(true);
+                if (_addAllButton != null) _addAllButton.gameObject.SetActive(true);
                 UpdateGrids();
             }
         }
     }
-    
+
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -176,8 +176,8 @@ public class BoxUI : MonoBehaviour
             if (this.gameObject.name != "PlayerBag")
             {
                 _panel.SetActive(false);
-                _dumpAllButton.gameObject.SetActive(false);
-                _addAllButton.gameObject.SetActive(false);
+                if (_dumpAllButton != null) _dumpAllButton.gameObject.SetActive(false);
+                if (_dumpAllButton != null) _addAllButton.gameObject.SetActive(false);
             }
         }
     }
