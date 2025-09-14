@@ -676,6 +676,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3900019031564430909, guid: 4d718536f6a29d746b13792aad4346b7,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7570784611016581936, guid: 710cd3006de00664bb953a6fcaf9c5bc,
+        type: 3}
+    - target: {fileID: 3900071981586572179, guid: 4d718536f6a29d746b13792aad4346b7,
+        type: 3}
+      propertyPath: m_CellSize.x
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900071981586572179, guid: 4d718536f6a29d746b13792aad4346b7,
+        type: 3}
+      propertyPath: m_CellSize.y
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900071981586572179, guid: 4d718536f6a29d746b13792aad4346b7,
+        type: 3}
+      propertyPath: m_Constraint
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900071981586572179, guid: 4d718536f6a29d746b13792aad4346b7,
+        type: 3}
+      propertyPath: m_Padding.m_Top
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900071981586572179, guid: 4d718536f6a29d746b13792aad4346b7,
+        type: 3}
+      propertyPath: m_Padding.m_Left
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 4003672980569250869, guid: 4d718536f6a29d746b13792aad4346b7,
         type: 3}
       propertyPath: m_Name
