@@ -416,6 +416,11 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 3504236522062898315, guid: 3e63b587f3d5f87458a41d4c3d829db1,
         type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3504236522062898315, guid: 3e63b587f3d5f87458a41d4c3d829db1,
+        type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -5561134254255615474, guid: 5091a5b242bc79848bbc3d85c91f1428,
@@ -431,6 +436,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 5091a5b242bc79848bbc3d85c91f1428,
         type: 2}
+    - target: {fileID: 5004662505177458723, guid: 3e63b587f3d5f87458a41d4c3d829db1,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5004662505177458723, guid: 3e63b587f3d5f87458a41d4c3d829db1,
         type: 3}
       propertyPath: m_sharedMaterial

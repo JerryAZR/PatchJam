@@ -42,12 +42,14 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             Vector2 localPoint;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(dragCanvas.transform as RectTransform, eventData.position, dragCanvas.worldCamera, out localPoint);
             dragIcon.anchoredPosition = localPoint;
+            Cursor.SetCursor(DragLayer.Instance.cursorClickSprite2, Vector2.zero, CursorMode.Auto);
         }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         GetComponent<CanvasGroup>().alpha = 1f;
+        Cursor.SetCursor(DragLayer.Instance.cursorSprite, Vector2.zero, CursorMode.Auto);
 
         List<RaycastResult> results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventData, results);
