@@ -153,7 +153,7 @@ public class BoxUI : MonoBehaviour
         PlayerBag.Instance.DebugPrint();
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
