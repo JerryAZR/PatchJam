@@ -5420,7 +5420,7 @@ MonoBehaviour:
   BlockingMovementStates: 
   BlockingConditionStates: 
   BlockingWeaponStates: 
-  PreventJumpWhenInZone: 1
+  PreventJumpWhenInZone: 0
   ActivationCooldownDuration: 0
 --- !u!114 &114225984267732342
 MonoBehaviour:
