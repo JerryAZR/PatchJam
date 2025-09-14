@@ -12,6 +12,9 @@ public class BoxUI : MonoBehaviour
     [SerializeField] private TMP_Text _countText;
     [SerializeField] private TMP_Text _weightText;
 
+    [SerializeField] private Button _addAllButton;
+    [SerializeField] private Button _dumpAllButton;
+
     private int _count;
     private int _weight;
 
@@ -54,8 +57,13 @@ public class BoxUI : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.B))
             {
-                _panel.SetActive(!_panel.activeSelf);
+                _panel.SetActive(true);
                 UpdateGrids();
+            }
+
+            if (Input.GetKeyUp(KeyCode.B))
+            {
+                _panel.SetActive(false);
             }
         }
     }
@@ -143,5 +151,32 @@ public class BoxUI : MonoBehaviour
         // PlayerBag.Instance.GetComponent<BoxUI>()?.UpdateGrids();
         _container.DebugPrint();
         PlayerBag.Instance.DebugPrint();
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            if (this.gameObject.name != "PlayerBag")
+            {
+                _panel.SetActive(true);
+                _dumpAllButton.gameObject.SetActive(true);
+                _addAllButton.gameObject.SetActive(true);
+                UpdateGrids();
+            }
+        }
+    }
+    
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            if (this.gameObject.name != "PlayerBag")
+            {
+                _panel.SetActive(false);
+                _dumpAllButton.gameObject.SetActive(false);
+                _addAllButton.gameObject.SetActive(false);
+            }
+        }
     }
 }
