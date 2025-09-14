@@ -21,7 +21,7 @@ public class BoxUI : MonoBehaviour
     [SerializeField] private List<Sprite> _orderSprites;
 
     private int _count;
-    private int _weight;
+    private float _weight;
 
     public void Start()
     {
@@ -155,7 +155,7 @@ public class BoxUI : MonoBehaviour
 
     private void UpdateWeight()
     {
-        _weight = 0;
+        _weight = _container.Weight;
         _weightText.text = $"Weight: {_weight}";
     }
 
