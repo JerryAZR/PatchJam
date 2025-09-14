@@ -647,7 +647,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5992214464984079346, guid: 967ab88548d4d764b89ce578f6da3af3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 967ab88548d4d764b89ce578f6da3af3, type: 3}
 --- !u!1001 &21713430
 PrefabInstance:
@@ -1628,10 +1632,15 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[10].second.m_TileObjectToInstantiateIndex
       value: 65535
       objectReference: {fileID: 0}
-    - target: {fileID: 3795567430622810879, guid: 967ab88548d4d764b89ce578f6da3af3,
+    - target: {fileID: 1189681954270771255, guid: 967ab88548d4d764b89ce578f6da3af3,
         type: 3}
       propertyPath: m_LocalScale.x
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3795567430622810879, guid: 967ab88548d4d764b89ce578f6da3af3,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3795567430622810879, guid: 967ab88548d4d764b89ce578f6da3af3,
         type: 3}
@@ -1751,7 +1760,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5992214464984079346, guid: 967ab88548d4d764b89ce578f6da3af3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 967ab88548d4d764b89ce578f6da3af3, type: 3}
 --- !u!1001 &976775684
 PrefabInstance:

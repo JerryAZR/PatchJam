@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,8 +16,12 @@ public class BoxUI : MonoBehaviour
     [SerializeField] private Button _addAllButton;
     [SerializeField] private Button _dumpAllButton;
 
+    [SerializeField] private Image _indexIcon;
+
+    [SerializeField] private List<Sprite> _orderSprites;
+
     private int _count;
-    private int _weight;
+    private float _weight;
 
     public void Start()
     {
@@ -45,6 +50,15 @@ public class BoxUI : MonoBehaviour
         }
 
         ContainerBase.OnDataTransfer += UpdateGrids;
+        StorageManager.OnInit += UpdateIndex;
+    }
+
+    void UpdateIndex()
+    {
+        if (_container != null)
+        {
+            _indexIcon.sprite = _orderSprites[_container.Order - 1];
+        }
     }
 
     void SetInitialState()
@@ -56,6 +70,7 @@ public class BoxUI : MonoBehaviour
     void OnDestroy()
     {
         ContainerBase.OnDataTransfer -= UpdateGrids;
+        StorageManager.OnInit -= UpdateIndex;
     }
 
     void Update()
@@ -140,7 +155,7 @@ public class BoxUI : MonoBehaviour
 
     private void UpdateWeight()
     {
-        _weight = 0;
+        _weight = _container.Weight;
         _weightText.text = $"Weight: {_weight}";
     }
 

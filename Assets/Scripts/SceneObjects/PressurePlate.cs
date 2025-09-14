@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
@@ -13,6 +14,7 @@ public class PressurePlate : OnOffSwitch
     [SerializeField] private Sprite _onSprite;
     [SerializeField] private Sprite _offSprite;
     [SerializeField] private SpriteRenderer _renderer;
+    [SerializeField] private TMP_Text _text;
 
     public float Detected { get; private set; }
 
@@ -51,5 +53,7 @@ public class PressurePlate : OnOffSwitch
 
             _renderer.sprite = On ? _onSprite : _offSprite;
         }
+
+        _text.text = $"Weight: {Detected:0.0}/{Threshold:0.0}";
     }
 }

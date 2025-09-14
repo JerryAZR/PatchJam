@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 using System.Linq;
 using UnityEngine;
 
@@ -8,6 +9,8 @@ public class StorageManager : MonoBehaviour
     private ContainerBase[] _containers;
 
     private ItemBaseSO[] _backingStore;
+
+    public static Action OnInit;
 
     private void Start()
     {
@@ -31,6 +34,7 @@ public class StorageManager : MonoBehaviour
                 Debug.LogError("StorageManager requires scene objects.");
             }
         }
+        OnInit?.Invoke();
     }
 
     private void Update()
