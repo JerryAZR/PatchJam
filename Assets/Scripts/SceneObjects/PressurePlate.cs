@@ -48,6 +48,8 @@ public class PressurePlate : OnOffSwitch
         {
             Debug.Log($"Pressure plate state changed: {On} -> {_prevState}");
             _prevState = On;
+
+            _renderer.sprite = On ? _onSprite : _offSprite;
         }
     }
 }
