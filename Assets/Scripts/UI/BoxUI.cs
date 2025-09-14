@@ -55,13 +55,13 @@ public class BoxUI : MonoBehaviour
     {
         if (this.gameObject.name != "PlayerBag")
         {
-            if (Input.GetKeyDown(KeyCode.B))
+            if (Input.GetKeyDown(KeyCode.Tab))
             {
                 _panel.SetActive(true);
                 UpdateGrids();
             }
 
-            if (Input.GetKeyUp(KeyCode.B))
+            if (Input.GetKeyUp(KeyCode.Tab))
             {
                 _panel.SetActive(false);
             }
