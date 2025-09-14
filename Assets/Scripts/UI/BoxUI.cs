@@ -91,11 +91,12 @@ public class BoxUI : MonoBehaviour
                 if (_container.Slots[i] == null)
                 {
                     gridUI.sprite = null;
-
+                    gridUI.transform.GetChild(0).gameObject.SetActive(true);
                     continue;
                 }
                 gridUI.sprite = _container.Slots[i].Icon;
                 gridControl.so = _container.Slots[i];
+                gridUI.transform.GetChild(0).gameObject.SetActive(false);
             }
         }
         // foreach (var item in _container.Slots)
