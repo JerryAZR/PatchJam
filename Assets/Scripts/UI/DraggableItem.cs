@@ -26,6 +26,14 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         GetComponent<CanvasGroup>().alpha = 0.5f;
     }
 
+    void OnDisable()
+    {
+        if (dragIcon != null)
+        {
+            Destroy(dragIcon.gameObject);
+        }
+    }
+
     public void OnDrag(PointerEventData eventData)
     {
         if (dragIcon != null)
