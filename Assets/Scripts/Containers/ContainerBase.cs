@@ -20,6 +20,8 @@ public class ContainerBase : MonoBehaviour, IWeighted
 
     public ArraySegment<ItemBaseSO> ViewSlots => _viewSlots;
 
+    public int Index { get; private set; } = 0;
+
     [SerializeField] protected List<ItemBaseSO> _initialItems;
 
     public bool IsLive { get; private set; } = false;
@@ -47,11 +49,12 @@ public class ContainerBase : MonoBehaviour, IWeighted
         OnDataTransfer -= UpdateInternals;
     }
 
-    public virtual void Init(ItemBaseSO[] backingStore, int start)
+    public virtual void Init(ItemBaseSO[] backingStore, int start, int index)
     {
         int tailLength = backingStore.Length - start;
         _slots = new ArraySegment<ItemBaseSO>(backingStore, start, tailLength);
         _viewSlots = new ArraySegment<ItemBaseSO>(backingStore, start, Capacity);
+        Index = index;
 
         if (_initialItems.Count > Capacity)
         {
