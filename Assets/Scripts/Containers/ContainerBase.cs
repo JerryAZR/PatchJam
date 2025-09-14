@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using MoreMountains.CorgiEngine;
 using UnityEngine;
+using UnityEngine.Splines;
 
 public class ContainerBase : MonoBehaviour, IWeighted
 {
@@ -25,7 +27,10 @@ public class ContainerBase : MonoBehaviour, IWeighted
     public float Weight => _weight;
     private float _weight;
 
-    public static Action OnDataTransfer;
+    public virtual Vector3 Position => transform.position;
+
+    public static event Action OnDataTransfer;
+    public static event Action OnTransferReject;
 
     protected virtual void Awake()
     {
@@ -67,6 +72,13 @@ public class ContainerBase : MonoBehaviour, IWeighted
     /// </summary>
     public virtual void TransferAll(ContainerBase destination)
     {
+        // Allow only if two containers are nearby
+        if (Vector3.Distance(Position, destination.Position) > 1.5f)
+        {
+            Debug.Log("TransferAll rejected because two containers are too far apart");
+            OnTransferReject?.Invoke();
+            return;
+        }
         Span<ItemBaseSO> srcSpan = _slots.AsSpan();
         for (int i = 0; i < srcSpan.Length && ItemCount > 0; i++)
         {
@@ -87,6 +99,21 @@ public class ContainerBase : MonoBehaviour, IWeighted
     /// </summary>
     public virtual void Swap(int srcIdx, ContainerBase destination, int dstIdx)
     {
+        Vector3 playerPosition = LevelManager.Instance.Players[0].transform.position;
+
+        if (Vector3.Distance(Position, playerPosition) > 1.5f)
+        {
+            Debug.Log("TransferAll rejected because player is too far away");
+            OnTransferReject?.Invoke();
+            return;
+        }
+        else if (Vector3.Distance(destination.Position, playerPosition) > 1.5f)
+        {
+            Debug.Log("TransferAll rejected because player is too far away");
+            OnTransferReject?.Invoke();
+            return;
+        }
+
         Span<ItemBaseSO> srcSpan = _slots.AsSpan();
         Span<ItemBaseSO> dstSpan = destination._slots.AsSpan();
         (srcSpan[srcIdx], dstSpan[dstIdx]) = (dstSpan[dstIdx], srcSpan[srcIdx]);

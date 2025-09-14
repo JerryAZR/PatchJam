@@ -10,7 +10,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     void Start()
     {
-        dragCanvas = DragLayer.Instance.GetComponent<Canvas>(); 
+        dragCanvas = DragLayer.Instance.GetComponent<Canvas>();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -57,12 +57,9 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             GridUI grid = r.gameObject.GetComponent<GridUI>();
             if (grid != null)
             {
-                if (grid.containerBase.name == "PlayerBag" || transform.GetComponent<GridUI>().containerBase.name == "PlayerBag")
-                {
-                    grid.OnDropItem(transform.GetComponent<GridUI>().containerBase, transform.GetComponent<GridUI>().index);
-                    Destroy(dragIcon.gameObject);
-                    return;
-                }
+                grid.OnDropItem(transform.GetComponent<GridUI>().containerBase, transform.GetComponent<GridUI>().index);
+                Destroy(dragIcon.gameObject);
+                return;
             }
         }
 

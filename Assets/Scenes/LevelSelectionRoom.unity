@@ -1182,6 +1182,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1858949006}
     m_Modifications:
+    - target: {fileID: 100000, guid: 7a343ffc127af4b41b1e509d55d21956, type: 3}
+      propertyPath: m_Name
+      value: SpawnPoint
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7a343ffc127af4b41b1e509d55d21956, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1229,7 +1233,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 7a343ffc127af4b41b1e509d55d21956, type: 3}
       propertyPath: m_Name
-      value: LevelStart
+      value: cp1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7a343ffc127af4b41b1e509d55d21956, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1477,26 +1481,16 @@ PrefabInstance:
       propertyPath: LevelBounds.m_Extent.y
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 6610215042206416114, guid: ccd8afd6969c948438b873bd52c919c6,
-        type: 3}
-      propertyPath: PointsOfEntry.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6610215042206416114, guid: ccd8afd6969c948438b873bd52c919c6,
-        type: 3}
-      propertyPath: PointsOfEntry.Array.data[0].Position
-      value: 
-      objectReference: {fileID: 1505988468}
-    - target: {fileID: 6610215042206416114, guid: ccd8afd6969c948438b873bd52c919c6,
-        type: 3}
-      propertyPath: PointsOfEntry.Array.data[1].Position
-      value: 
-      objectReference: {fileID: 1825195202}
     - target: {fileID: 7787032496377177485, guid: ccd8afd6969c948438b873bd52c919c6,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8563812757765590110, guid: ccd8afd6969c948438b873bd52c919c6,
+        type: 3}
+      propertyPath: _levelRoot
+      value: 
+      objectReference: {fileID: 1858949005}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1573,7 +1567,7 @@ PrefabInstance:
     - target: {fileID: 7528976525452974464, guid: 513277025dc2c374f915aaa0d4deb378,
         type: 3}
       propertyPath: m_Name
-      value: LevelEntry
+      value: Level1Entry
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
