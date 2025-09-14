@@ -18,6 +18,7 @@ public class LockedDoor : ContainerBase
             {
                 Open = true;
                 _unlockAnimator.SetTrigger("Unlock");
+                gameObject.GetComponent<AudioSource>()?.Play();
                 if (_containerUI != null) _containerUI.SetActive(false);
                 StartCoroutine(UnlockCoroutine());
                 break;
