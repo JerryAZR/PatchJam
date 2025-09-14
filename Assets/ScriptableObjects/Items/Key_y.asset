@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Key_y
   m_EditorClassIdentifier: 
   Name: Yellow Key
-  Weight: 0.1
+  Weight: 1
   Icon: {fileID: -941292001, guid: 3cad9a5613b61484b9931f7b32f18ce6, type: 3}

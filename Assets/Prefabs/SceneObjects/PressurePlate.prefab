@@ -93,6 +93,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _threshold: 1
+  _onSprite: {fileID: -83197670, guid: 3cad9a5613b61484b9931f7b32f18ce6, type: 3}
+  _offSprite: {fileID: 724329002, guid: 3cad9a5613b61484b9931f7b32f18ce6, type: 3}
+  _renderer: {fileID: 3354732601434035055}
 --- !u!1 &6812833243973313724
 GameObject:
   m_ObjectHideFlags: 0

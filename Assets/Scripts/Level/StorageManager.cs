@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class StorageManager : MonoBehaviour
 {
-    [SerializeField] private List<ContainerBase> _containers;
+    [SerializeField] private GameObject _containerRoot;
+    private ContainerBase[] _containers;
 
     private ItemBaseSO[] _backingStore;
 
     private void Start()
     {
+        _containers = _containerRoot.GetComponentsInChildren<ContainerBase>();
         // First pass, calculate total size and allocate array
         int size = _containers.Sum(c => c.Capacity);
         _backingStore = new ItemBaseSO[size];

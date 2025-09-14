@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Key_b
   m_EditorClassIdentifier: 
   Name: Blue Key
-  Weight: 0.1
+  Weight: 1
   Icon: {fileID: -1302824975, guid: 43331061c7173ad4f8674bc9a365848f, type: 3}
