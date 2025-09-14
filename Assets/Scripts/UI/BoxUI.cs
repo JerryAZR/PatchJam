@@ -92,19 +92,21 @@ public class BoxUI : MonoBehaviour
                 gridControl.index = i;
             }
 
-            var gridUI = grid.GetComponent<Image>();
+            var gridUI = grid.transform.GetChild(0).GetComponent<Image>();
             if (gridUI != null)
             {
                 if (_container.Slots == null) continue;
                 if (_container.Slots[i] == null)
                 {
                     gridUI.sprite = null;
-                    gridUI.transform.GetChild(0).gameObject.SetActive(true);
+                    gridUI.gameObject.SetActive(false);
+                    //gridUI.transform.GetChild(0).gameObject.SetActive(true);
                     continue;
                 }
+                gridUI.gameObject.SetActive(true);
                 gridUI.sprite = _container.Slots[i].Icon;
                 gridControl.so = _container.Slots[i];
-                gridUI.transform.GetChild(0).gameObject.SetActive(false);
+                //gridUI.transform.GetChild(0).gameObject.SetActive(false);
             }
         }
         // foreach (var item in _container.Slots)

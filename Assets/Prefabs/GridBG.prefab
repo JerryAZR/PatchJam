@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5293500666404453284}
   - component: {fileID: 543569251830752369}
   m_Layer: 5
-  m_Name: bg
+  m_Name: item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65,8 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1196742970097805969, guid: 93c52c9ae507ff245ba60683d1188a6f,
-    type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -91,7 +90,7 @@ GameObject:
   - component: {fileID: 1337042762570377085}
   - component: {fileID: 1306705533172079393}
   m_Layer: 5
-  m_Name: Grid
+  m_Name: GridBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -145,7 +144,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 1196742970097805969, guid: 93c52c9ae507ff245ba60683d1188a6f,
+    type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
