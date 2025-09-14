@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class LockedDoor : ContainerBase
@@ -18,8 +19,15 @@ public class LockedDoor : ContainerBase
                 Open = true;
                 _unlockAnimator.SetTrigger("Unlock");
                 if (_containerUI != null) _containerUI.SetActive(false);
+                StartCoroutine(UnlockCoroutine());
+                break;
             }
-
         }
+    }
+
+    IEnumerator UnlockCoroutine()
+    {
+        yield return new WaitForSeconds(1.2f);
+        this.gameObject.SetActive(false);
     }
 }
