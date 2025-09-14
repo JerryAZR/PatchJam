@@ -23,6 +23,12 @@ public class BoxUI : MonoBehaviour
     private int _count;
     private float _weight;
 
+    void Awake()
+    {
+        ContainerBase.OnDataTransfer += UpdateGrids;
+        StorageManager.OnInit += UpdateIndex;
+    }
+
     public void Start()
     {
         if (_container == null)
@@ -49,16 +55,17 @@ public class BoxUI : MonoBehaviour
             UpdateGrids();
         }
 
-        ContainerBase.OnDataTransfer += UpdateGrids;
-        StorageManager.OnInit += UpdateIndex;
+
     }
 
     void UpdateIndex()
     {
-        if (_container != null)
+        if (_container == null)
         {
-            _indexIcon.sprite = _orderSprites[_container.Order - 1];
+            _container = GetComponent<ContainerBase>();
         }
+
+        _indexIcon.sprite = _orderSprites[_container.Order - 1];
     }
 
     void SetInitialState()
