@@ -334,6 +334,8 @@ MonoBehaviour:
     type: 3}
   _countText: {fileID: 0}
   _weightText: {fileID: 0}
+  _addAllButton: {fileID: 0}
+  _dumpAllButton: {fileID: 0}
 --- !u!4 &8103755314484232343 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8267954793528406243, guid: bdb329053290801469662443edf4fbf4,
@@ -621,6 +623,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0.015014648
       objectReference: {fileID: 0}
+    - target: {fileID: 3788905389928201445, guid: 4d718536f6a29d746b13792aad4346b7,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 560
+      objectReference: {fileID: 0}
     - target: {fileID: 3789255257578206107, guid: 4d718536f6a29d746b13792aad4346b7,
         type: 3}
       propertyPath: m_Pivot.x
@@ -654,7 +661,7 @@ PrefabInstance:
     - target: {fileID: 3789255257578206107, guid: 4d718536f6a29d746b13792aad4346b7,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 800
+      value: 560
       objectReference: {fileID: 0}
     - target: {fileID: 3789255257578206107, guid: 4d718536f6a29d746b13792aad4346b7,
         type: 3}
