@@ -17,11 +17,13 @@ public class StorageManager : MonoBehaviour
         _backingStore = new ItemBaseSO[size];
         // Second pass, initialize containers
         int index = 0;
+        int order = 0;
         foreach (ContainerBase container in _containers)
         {
             if (container.IsLive)
             {
-                container.Init(_backingStore, index);
+                order++;
+                container.Init(_backingStore, index, order);
                 index += container.Capacity;
             }
             else

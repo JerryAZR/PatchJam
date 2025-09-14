@@ -20,7 +20,7 @@ public class ContainerBase : MonoBehaviour, IWeighted
 
     public ArraySegment<ItemBaseSO> ViewSlots => _viewSlots;
 
-    public int Index { get; private set; } = 0;
+    public int Order { get; private set; } = 0;
 
     [SerializeField] protected List<ItemBaseSO> _initialItems;
 
@@ -49,12 +49,12 @@ public class ContainerBase : MonoBehaviour, IWeighted
         OnDataTransfer -= UpdateInternals;
     }
 
-    public virtual void Init(ItemBaseSO[] backingStore, int start, int index)
+    public virtual void Init(ItemBaseSO[] backingStore, int start, int order)
     {
         int tailLength = backingStore.Length - start;
         _slots = new ArraySegment<ItemBaseSO>(backingStore, start, tailLength);
         _viewSlots = new ArraySegment<ItemBaseSO>(backingStore, start, Capacity);
-        Index = index;
+        Order = order;
 
         if (_initialItems.Count > Capacity)
         {
