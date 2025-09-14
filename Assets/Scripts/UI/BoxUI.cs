@@ -102,9 +102,10 @@ public class BoxUI : MonoBehaviour
 
     }
 
-    public void UpdateGrids()
+    public void UpdateGrids(ContainerBase container = null)
     {
         if (_gridPrefab == null) return;
+        if (container != null && container != _container) return;
         foreach (Transform child in _gridParent.transform)
         {
             Destroy(child.gameObject);

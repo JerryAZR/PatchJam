@@ -30,7 +30,7 @@ public class ContainerBase : MonoBehaviour, IWeighted
 
     public virtual Vector3 Position => transform.position;
 
-    public static event Action OnDataTransfer;
+    public static event Action<ContainerBase> OnDataTransfer;
     public static event Action OnTransferReject;
 
     protected virtual void Awake()
@@ -72,7 +72,7 @@ public class ContainerBase : MonoBehaviour, IWeighted
             _initialItems.CopyTo(backingStore, start);
             ItemCount = _initialItems.Count;
             DebugPrint();
-            UpdateInternals();
+            if (ItemCount > 0) OnDataTransfer?.Invoke(this);
         }
     }
 
@@ -101,7 +101,7 @@ public class ContainerBase : MonoBehaviour, IWeighted
                 destination.Add(item);
             }
         }
-        OnDataTransfer?.Invoke();
+        OnDataTransfer?.Invoke(null);
     }
 
     /// <summary>
@@ -172,8 +172,9 @@ public class ContainerBase : MonoBehaviour, IWeighted
         Debug.Log($"{Name}({ItemCount}): [{string.Join(",", contents)}]");
     }
 
-    protected virtual void UpdateInternals()
+    protected virtual void UpdateInternals(ContainerBase container = null)
     {
+        if (container != null && container != this) return;
         _weight = ViewSlots.Where(item => item != null).Sum(item => item.Weight);
         Debug.Log($"Weight of {Name} is now {_weight}");
     }

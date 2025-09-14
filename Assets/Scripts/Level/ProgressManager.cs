@@ -14,7 +14,7 @@ public enum LevelState
 public class ProgressManager : MMPersistentSingleton<ProgressManager>
 {
     Dictionary<string, LevelState> _levelStates = new();
-    Dictionary<string, int> _levelOrder;
+    Dictionary<string, int> _levelOrder = new();
     [SerializeField] private GameObject _gatesRoot;
     private LevelEntrance[] _entranceArray;
 
@@ -25,7 +25,7 @@ public class ProgressManager : MMPersistentSingleton<ProgressManager>
     {
         // Set this level as cleared and unlock next level
         _levelStates[levelName] = LevelState.Cleared;
-        int next = _levelOrder[levelName] + 1;
+        int next = _levelOrder.GetValueOrDefault(levelName, -1) + 1;
         if (GetState(GetLevelName(next)) == LevelState.Locked)
         {
             _levelStates[GetLevelName(next)] = LevelState.Ready;
