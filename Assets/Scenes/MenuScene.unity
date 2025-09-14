@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab472eb51ad0e4535b858bc2f9fb9dc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextLevel: Level1
+  NextLevel: LevelSelectionRoom
   LoadingSceneName: LoadingScreen
   AutoSkipDelay: 2
   FadeInDuration: 1
