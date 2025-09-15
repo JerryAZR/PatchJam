@@ -26,7 +26,11 @@ namespace MoreMountains.CorgiEngine
 		/// </summary>
 		public virtual void GoToLevel()
 		{
+#if UNITY_WEBGL
+			SceneManager.LoadScene(LevelName);
+#else
 			LevelManager.Instance.GotoLevel(LevelName, Fade, Save);
+#endif
 		}
 
 		/// <summary>
@@ -38,6 +42,6 @@ namespace MoreMountains.CorgiEngine
 			// we trigger an unPause event for the GameManager (and potentially other classes)
 			//CorgiEngineEvent.Trigger(CorgiEngineEventTypes.UnPause);
 			//LoadingSceneManager.LoadScene(SceneManager.GetActiveScene().name);
-		}		
+		}
 	}
 }

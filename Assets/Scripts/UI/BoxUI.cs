@@ -25,7 +25,7 @@ public class BoxUI : MonoBehaviour
 
     void Awake()
     {
-        ContainerBase.OnDataTransfer += UpdateGrids;
+        StorageManager.OnDataTransfer += UpdateGrids;
         StorageManager.OnInit += UpdateIndex;
     }
 
@@ -66,6 +66,9 @@ public class BoxUI : MonoBehaviour
         }
 
         _indexIcon.sprite = _orderSprites[_container.Order - 1];
+
+        // Also update grids
+        UpdateGrids();
     }
 
     void SetInitialState()
@@ -76,7 +79,7 @@ public class BoxUI : MonoBehaviour
 
     void OnDestroy()
     {
-        ContainerBase.OnDataTransfer -= UpdateGrids;
+        StorageManager.OnDataTransfer -= UpdateGrids;
         StorageManager.OnInit -= UpdateIndex;
     }
 
@@ -102,10 +105,9 @@ public class BoxUI : MonoBehaviour
 
     }
 
-    public void UpdateGrids(ContainerBase container = null)
+    public void UpdateGrids()
     {
         if (_gridPrefab == null) return;
-        if (container != null && container != _container) return;
         foreach (Transform child in _gridParent.transform)
         {
             Destroy(child.gameObject);

@@ -10,7 +10,18 @@ public class StorageManager : MonoBehaviour
 
     private ItemBaseSO[] _backingStore;
 
-    public static Action OnInit;
+    public static event Action OnInit;
+    public static event Action OnDataTransfer;
+
+    private void Awake()
+    {
+        ContainerBase.OnOverflow += UpdateAllContainers;
+    }
+
+    private void OnDestroy()
+    {
+        ContainerBase.OnOverflow -= UpdateAllContainers;
+    }
 
     private void Start()
     {
@@ -57,5 +68,14 @@ public class StorageManager : MonoBehaviour
                 container.DebugPrint();
             }
         }
+    }
+
+    private void UpdateAllContainers()
+    {
+        foreach (ContainerBase container in _containers)
+        {
+            container.UpdateInternals();
+        }
+        OnDataTransfer?.Invoke();
     }
 }

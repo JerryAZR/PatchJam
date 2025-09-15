@@ -30,7 +30,7 @@ public class ContainerBase : MonoBehaviour, IWeighted
 
     public virtual Vector3 Position => transform.position;
 
-    public static event Action<ContainerBase> OnDataTransfer;
+    public static event Action OnOverflow;
     public static event Action OnTransferReject;
 
     protected virtual void Awake()
@@ -40,8 +40,6 @@ public class ContainerBase : MonoBehaviour, IWeighted
 
     protected virtual void Start()
     {
-        OnDataTransfer += UpdateInternals;
-
 #if UNITY_EDITOR
         // Validate hierarchy
         if (GetComponentInParent<ContainerRoot>() == null)
@@ -53,7 +51,6 @@ public class ContainerBase : MonoBehaviour, IWeighted
 
     protected virtual void OnDestroy()
     {
-        OnDataTransfer -= UpdateInternals;
     }
 
     public virtual void Init(ItemBaseSO[] backingStore, int start, int order)
@@ -72,7 +69,7 @@ public class ContainerBase : MonoBehaviour, IWeighted
             _initialItems.CopyTo(backingStore, start);
             ItemCount = _initialItems.Count;
             DebugPrint();
-            if (ItemCount > 0) OnDataTransfer?.Invoke(this);
+            UpdateInternals();
         }
     }
 
@@ -101,7 +98,7 @@ public class ContainerBase : MonoBehaviour, IWeighted
                 destination.Add(item);
             }
         }
-        OnDataTransfer?.Invoke(null);
+        OnOverflow?.Invoke();
     }
 
     /// <summary>
@@ -172,9 +169,8 @@ public class ContainerBase : MonoBehaviour, IWeighted
         Debug.Log($"{Name}({ItemCount}): [{string.Join(",", contents)}]");
     }
 
-    protected virtual void UpdateInternals(ContainerBase container = null)
+    public virtual void UpdateInternals()
     {
-        if (container != null && container != this) return;
         _weight = ViewSlots.Where(item => item != null).Sum(item => item.Weight);
         Debug.Log($"Weight of {Name} is now {_weight}");
     }

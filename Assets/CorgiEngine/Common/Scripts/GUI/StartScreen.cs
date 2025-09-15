@@ -45,7 +45,7 @@ namespace MoreMountains.CorgiEngine
 		/// Initialization
 		/// </summary>
 		protected virtual void Awake()
-		{	
+		{
 			GUIManager.Instance.SetHUDActive (false);
 			MMFadeOutEvent.Trigger(FadeInDuration, Tween);
 
@@ -62,7 +62,7 @@ namespace MoreMountains.CorgiEngine
 		protected async void Start()
 		{
 			await Task.Delay(1);
-			
+
 			if (MusicSwitch != null)
 			{
 				MusicSwitch.CurrentSwitchState = MMSoundManager.Instance.settingsSo.Settings.MusicOn ? MMSwitch.SwitchStates.Right : MMSwitch.SwitchStates.Left;
@@ -83,7 +83,7 @@ namespace MoreMountains.CorgiEngine
 		{
 			if (!Input.GetButtonDown ("Player1_Jump"))
 				return;
-			
+
 			ButtonPressed ();
 		}
 
@@ -103,8 +103,12 @@ namespace MoreMountains.CorgiEngine
 		/// <returns>The first level.</returns>
 		protected virtual IEnumerator LoadFirstLevel()
 		{
-			yield return new WaitForSeconds (FadeOutDuration);
+			yield return new WaitForSeconds(FadeOutDuration);
+#if UNITY_WEBGL
+			SceneManager.LoadScene(NextLevel);
+#else
 			MMSceneLoadingManager.LoadScene (NextLevel, LoadingSceneName);
+#endif
 		}
 	}
 }

@@ -2,18 +2,19 @@ using UnityEngine;
 using System.Collections;
 using MoreMountains.Tools;
 using MoreMountains.Feedbacks;
+using UnityEngine.SceneManagement;
 
 namespace MoreMountains.CorgiEngine
-{	
+{
 	/// <summary>
 	/// Add this class to a trigger and it will send your player to the next level
 	/// </summary>
 	[AddComponentMenu("Corgi Engine/Spawn/Finish Level")]
-	public class FinishLevel : ButtonActivated 
+	public class FinishLevel : ButtonActivated
 	{
 		[MMInspectorGroup("Finish Level", true, 22)]
 
-		/// the (exact) name of the level to go to 
+		/// the (exact) name of the level to go to
 		[Tooltip("the (exact) name of the level to go to ")]
 		public string LevelName;
 		/// the delay (in seconds) before actually redirecting to a new scene
@@ -74,8 +75,8 @@ namespace MoreMountains.CorgiEngine
 
 			StartCoroutine(GoToNextLevelCoroutine());
 			ActivateZone ();
-		}	
-        
+		}
+
 		/// <summary>
 		/// A coroutine used to handle the finish level sequence
 		/// </summary>
@@ -112,6 +113,9 @@ namespace MoreMountains.CorgiEngine
 		/// </summary>
 		public virtual void GoToNextLevel()
 		{
+#if UNITY_WEBGL
+			SceneManager.LoadScene(LevelName);
+#else
 			if (LevelManager.HasInstance)
 			{
 				LevelManager.Instance.GotoLevel(LevelName, (DelayBeforeTransition == 0f));
@@ -120,6 +124,7 @@ namespace MoreMountains.CorgiEngine
 			{
 				MMSceneLoadingManager.LoadScene(LevelName);
 			}
+#endif
 		}
 	}
 }

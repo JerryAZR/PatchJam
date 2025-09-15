@@ -450,7 +450,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 345657237, guid: 43331061c7173ad4f8674bc9a365848f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -475,6 +475,7 @@ GameObject:
   - component: {fileID: 7132253321260761774}
   - component: {fileID: 5345473947918111886}
   - component: {fileID: 8577699029873013203}
+  - component: {fileID: 6040455373840736392}
   m_Layer: 0
   m_Name: LevelEntry
   m_TagString: Untagged
@@ -644,3 +645,15 @@ MonoBehaviour:
   _clearedLevel: {fileID: 0}
   _renderer: {fileID: 3766204345289984613}
   _newHint: {fileID: 2101852032591980404}
+--- !u!210 &6040455373840736392
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7528976525452974464}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_SortAtRoot: 0
