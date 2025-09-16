@@ -1,27 +1,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 public class WeightPlatformBase : MonoBehaviour
 {
-    [SerializeField] private Collider2D _bottomCollider;
-    [SerializeField] private LayerMask _collisionMask;
+    // [SerializeField] private Collider2D _bottomCollider;
+    // [SerializeField] private LayerMask _collisionMask;
     [SerializeField] private Collider2D _weightZone;
+    private Rigidbody2D _rigidbody;
 
     public float RawWeight { get; private set; }
 
     public bool CanRise => transform.localPosition.y < 0;
-    public bool CanFall { get; private set; }
-    private Collider2D[] _obstacle = new Collider2D[1];
+    public bool Fall
+    {
+        set => _rigidbody.bodyType = value ? RigidbodyType2D.Dynamic : RigidbodyType2D.Kinematic;
+    }
+
+    private void Start()
+    {
+        _rigidbody = GetComponent<Rigidbody2D>();
+    }
 
     void Update()
     {
         UpdateWeight();
-
-        ContactFilter2D filter = new();
-        filter.useTriggers = false;
-        filter.SetLayerMask(_collisionMask);
-        CanFall = _bottomCollider.Overlap(filter, _obstacle) == 0;
-        // if (!CanFall) Debug.Log($"{name} cannot fall due to {_obstacle[0].name} ({_obstacle[0].GetInstanceID()})");
     }
 
     private void UpdateWeight()
@@ -42,5 +45,10 @@ public class WeightPlatformBase : MonoBehaviour
         }
 
         RawWeight = totalWeight;
+    }
+
+    public void Move(Vector2 position)
+    {
+        _rigidbody.MovePosition(position);
     }
 }

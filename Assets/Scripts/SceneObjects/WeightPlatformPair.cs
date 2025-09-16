@@ -11,7 +11,6 @@ public class WeightPlatformPair : MonoBehaviour
     [SerializeField] private float _speedMultiplier;
     [SerializeField] private float _resolution;
     private float _ropeLength;
-    public bool Moving { get; private set; }
 
     void Start()
     {
@@ -19,7 +18,7 @@ public class WeightPlatformPair : MonoBehaviour
             _platform2.transform.localPosition.y;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         float weight1 = _platform1.RawWeight;
         float weight2 = _platform2.RawWeight;
@@ -28,35 +27,29 @@ public class WeightPlatformPair : MonoBehaviour
         (heavyPlatform, lightPlatform) = weight1 > weight2 ?
             (_platform1, _platform2) : (_platform2, _platform1);
 
+        lightPlatform.Fall = false;
+        heavyPlatform.Fall = false;
+
         if (weightDiff > _resolution)
         {
-            if (lightPlatform.CanRise && heavyPlatform.CanFall)
+            if (lightPlatform.CanRise)
             {
                 float maxDelta = Mathf.Clamp(
                     weightDiff * _speedMultiplier, 0, _maxSpeed
                 ) * Time.deltaTime;
-                // Move light platform up first
-                Vector3 lightTarget = lightPlatform.transform.localPosition;
-                lightTarget.y = 0;
-                lightPlatform.transform.localPosition = Vector3.MoveTowards(
-                    lightPlatform.transform.localPosition, lightTarget, maxDelta);
-                // Next we move the heavy one down
-                Vector3 heavyTarget = heavyPlatform.transform.localPosition;
-                heavyTarget.y = -_ropeLength - lightPlatform.transform.localPosition.y;
-                heavyPlatform.transform.localPosition = heavyTarget;
-                Moving = true;
-                // Debug.Log($"Moving by {maxDelta}");
+                // Move heavy platform down first
+                heavyPlatform.Fall = true;
+                Vector3 fallTarget = heavyPlatform.transform.localPosition;
+                fallTarget.y = -_ropeLength;
+                fallTarget = Vector3.MoveTowards(
+                    heavyPlatform.transform.localPosition, fallTarget, maxDelta
+                );
+                heavyPlatform.Move(transform.TransformPoint(fallTarget));
+
+                Vector3 riseTarget = lightPlatform.transform.localPosition;
+                riseTarget.y = -_ropeLength - heavyPlatform.transform.localPosition.y;
+                lightPlatform.Move(transform.TransformPoint(riseTarget));
             }
-            else
-            {
-                Moving = false;
-                // Debug.Log($"Cannot move. Rise={lightPlatform.CanRise}; Fall={heavyPlatform.CanFall}");
-            }
-        }
-        else
-        {
-            Moving = false;
-            // Debug.Log($"Weight difference {weightDiff} < {_resolution}. Not moving");
         }
     }
 

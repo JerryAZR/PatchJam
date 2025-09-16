@@ -113,8 +113,6 @@ GameObject:
   - component: {fileID: 3094684514557054350}
   - component: {fileID: 5955989523126670749}
   - component: {fileID: 5785734559292470310}
-  - component: {fileID: 8466290407069659746}
-  - component: {fileID: 5494276622315189077}
   m_Layer: 0
   m_Name: DummyBox
   m_TagString: Untagged
@@ -136,6 +134,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7654319634667706400}
+  - {fileID: 388977153539824329}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5955989523126670749
@@ -207,45 +206,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _capacity: 8
   _initialItems: []
---- !u!114 &8466290407069659746
-MonoBehaviour:
+--- !u!1 &7863808979241883698
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6713798881647072335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6979b71dbd5d934409052d67df7f62a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _container: {fileID: 5785734559292470310}
-  _panel: {fileID: 1145976852179951897}
-  _gridParent: {fileID: 1146140253021182907}
-  _gridPrefab: {fileID: 1831387509701803603, guid: ccfe14ab81855a147ab68fc437468da4,
-    type: 3}
-  _countText: {fileID: 1966633067056236006}
-  _weightText: {fileID: 7971174383953594702}
-  _addAllButton: {fileID: 6772237622525909753}
-  _dumpAllButton: {fileID: 1041928126084717289}
-  _indexIcon: {fileID: 8286266307123516961}
-  _orderSprites:
-  - {fileID: 1745095371, guid: 43331061c7173ad4f8674bc9a365848f, type: 3}
-  - {fileID: 2011312308, guid: 43331061c7173ad4f8674bc9a365848f, type: 3}
-  - {fileID: 1177475375, guid: 43331061c7173ad4f8674bc9a365848f, type: 3}
-  - {fileID: 986424881, guid: 43331061c7173ad4f8674bc9a365848f, type: 3}
-  - {fileID: 2131488917, guid: 43331061c7173ad4f8674bc9a365848f, type: 3}
-  - {fileID: -1303683488, guid: 43331061c7173ad4f8674bc9a365848f, type: 3}
-  - {fileID: 775999409, guid: 43331061c7173ad4f8674bc9a365848f, type: 3}
-  - {fileID: 1638556425, guid: 43331061c7173ad4f8674bc9a365848f, type: 3}
-  - {fileID: 1486459002, guid: 43331061c7173ad4f8674bc9a365848f, type: 3}
---- !u!61 &5494276622315189077
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 388977153539824329}
+  - component: {fileID: 9019663714634802003}
+  - component: {fileID: 9114091451392616516}
+  m_Layer: 0
+  m_Name: Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &388977153539824329
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7863808979241883698}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3094684514557054350}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &9019663714634802003
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6713798881647072335}
+  m_GameObject: {fileID: 7863808979241883698}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -276,15 +276,47 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &9114091451392616516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7863808979241883698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6979b71dbd5d934409052d67df7f62a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _container: {fileID: 5785734559292470310}
+  _panel: {fileID: 1145976852179951897}
+  _gridParent: {fileID: 1146140253021182907}
+  _gridPrefab: {fileID: 1831387509701803603, guid: ccfe14ab81855a147ab68fc437468da4,
+    type: 3}
+  _countText: {fileID: 1966633067056236006}
+  _weightText: {fileID: 7971174383953594702}
+  _addAllButton: {fileID: 6772237622525909753}
+  _dumpAllButton: {fileID: 1041928126084717289}
+  _indexIcon: {fileID: 8286266307123516961}
+  _orderSprites:
+  - {fileID: 1745095371, guid: 43331061c7173ad4f8674bc9a365848f, type: 3}
+  - {fileID: 2011312308, guid: 43331061c7173ad4f8674bc9a365848f, type: 3}
+  - {fileID: 1177475375, guid: 43331061c7173ad4f8674bc9a365848f, type: 3}
+  - {fileID: 986424881, guid: 43331061c7173ad4f8674bc9a365848f, type: 3}
+  - {fileID: 2131488917, guid: 43331061c7173ad4f8674bc9a365848f, type: 3}
+  - {fileID: -1303683488, guid: 43331061c7173ad4f8674bc9a365848f, type: 3}
+  - {fileID: 775999409, guid: 43331061c7173ad4f8674bc9a365848f, type: 3}
+  - {fileID: 1638556425, guid: 43331061c7173ad4f8674bc9a365848f, type: 3}
+  - {fileID: 1486459002, guid: 43331061c7173ad4f8674bc9a365848f, type: 3}
 --- !u!1001 &3164745029229928813
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -307,7 +339,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 8466290407069659746}
+      objectReference: {fileID: 9114091451392616516}
+    - target: {fileID: 2710818199018568580, guid: 3e63b587f3d5f87458a41d4c3d829db1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DumpAllButton
+      objectReference: {fileID: 0}
     - target: {fileID: 2815982963999721262, guid: 3e63b587f3d5f87458a41d4c3d829db1,
         type: 3}
       propertyPath: m_Pivot.x
@@ -471,7 +508,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 8466290407069659746}
+      objectReference: {fileID: 9114091451392616516}
+    - target: {fileID: 8507507411574045588, guid: 3e63b587f3d5f87458a41d4c3d829db1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddAllButton
+      objectReference: {fileID: 0}
     - target: {fileID: 8831879265472081692, guid: 3e63b587f3d5f87458a41d4c3d829db1,
         type: 3}
       propertyPath: m_SizeDelta.x

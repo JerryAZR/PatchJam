@@ -860,6 +860,11 @@ PrefabInstance:
       propertyPath: m_MaskInteraction
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3920439087085698837, guid: e3e6e2bd0136675498b267ba30994816,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6168143678475338585, guid: e3e6e2bd0136675498b267ba30994816,
         type: 3}
       propertyPath: m_Name
@@ -950,6 +955,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_MaskInteraction
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3920439087085698837, guid: e3e6e2bd0136675498b267ba30994816,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6168143678475338585, guid: e3e6e2bd0136675498b267ba30994816,
         type: 3}

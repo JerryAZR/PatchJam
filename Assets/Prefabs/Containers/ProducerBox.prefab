@@ -333,6 +333,46 @@ PrefabInstance:
       propertyPath: _dumpAllButton
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9114091451392616516, guid: 5ca5b6d0aaa08f7479bf9e2875773f46,
+        type: 3}
+      propertyPath: _panel
+      value: 
+      objectReference: {fileID: 7704949385383908756}
+    - target: {fileID: 9114091451392616516, guid: 5ca5b6d0aaa08f7479bf9e2875773f46,
+        type: 3}
+      propertyPath: _container
+      value: 
+      objectReference: {fileID: 3621597796614437279}
+    - target: {fileID: 9114091451392616516, guid: 5ca5b6d0aaa08f7479bf9e2875773f46,
+        type: 3}
+      propertyPath: _countText
+      value: 
+      objectReference: {fileID: 9097494578981843307}
+    - target: {fileID: 9114091451392616516, guid: 5ca5b6d0aaa08f7479bf9e2875773f46,
+        type: 3}
+      propertyPath: _indexIcon
+      value: 
+      objectReference: {fileID: 1726165126241788588}
+    - target: {fileID: 9114091451392616516, guid: 5ca5b6d0aaa08f7479bf9e2875773f46,
+        type: 3}
+      propertyPath: _gridParent
+      value: 
+      objectReference: {fileID: 7705026985763221302}
+    - target: {fileID: 9114091451392616516, guid: 5ca5b6d0aaa08f7479bf9e2875773f46,
+        type: 3}
+      propertyPath: _weightText
+      value: 
+      objectReference: {fileID: 834685021755473347}
+    - target: {fileID: 9114091451392616516, guid: 5ca5b6d0aaa08f7479bf9e2875773f46,
+        type: 3}
+      propertyPath: _addAllButton
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9114091451392616516, guid: 5ca5b6d0aaa08f7479bf9e2875773f46,
+        type: 3}
+      propertyPath: _dumpAllButton
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5955989523126670749, guid: 5ca5b6d0aaa08f7479bf9e2875773f46, type: 3}
     - {fileID: 5785734559292470310, guid: 5ca5b6d0aaa08f7479bf9e2875773f46, type: 3}

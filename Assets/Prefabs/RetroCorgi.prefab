@@ -4991,7 +4991,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &61893930711871926
 BoxCollider2D:
@@ -5239,7 +5239,7 @@ MonoBehaviour:
   AirControl: 1
   AllowFlipInTheAir: 1
   ActiveAfterDeath: 0
-  TouchTheGroundFeedback: {fileID: 3954242864737784057}
+  TouchTheGroundFeedback: {fileID: 0}
   MinimumAirTimeBeforeFeedback: 0.2
   StopWalkingWhenCollidingWithAWall: 0
 --- !u!114 &114683987661486744
@@ -5282,7 +5282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1c1a8bab4d234998bcbc559bb58fa11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AbilityStartFeedbacks: {fileID: 0}
+  AbilityStartFeedbacks: {fileID: 6773202691821123309}
   AbilityStopFeedbacks: {fileID: 0}
   AbilityPermitted: 1
   BlockingMovementStates: 
@@ -83628,7 +83628,7 @@ MonoBehaviour:
         Active: 1
         UniqueID: 1258026833
         Label: Particles Play
-        OriginalLabel: 
+        OriginalLabel: Particles Play
         ChannelMode: 0
         Channel: 0
         MMChannelDefinition: {fileID: 0}
@@ -83711,10 +83711,10 @@ MonoBehaviour:
     - rid: 1
       type: {class: MMF_CorgiEngineSound, ns: MoreMountains.CorgiEngine, asm: MoreMountains.CorgiEngine}
       data:
-        Active: 1
+        Active: 0
         UniqueID: -1600743761
         Label: Corgi Engine Sound
-        OriginalLabel: 
+        OriginalLabel: Corgi Engine Sound
         ChannelMode: 0
         Channel: 0
         MMChannelDefinition: {fileID: 0}

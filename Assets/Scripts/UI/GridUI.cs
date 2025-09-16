@@ -10,12 +10,13 @@ public class GridUI : MonoBehaviour
 
     public void OnDropItem(ContainerBase container, int srcIndex = 0)
     {
+        Debug.Log($"On {name}");
+        Debug.Log($"containerBase={containerBase.name}, container={container.name}");
         if (containerBase != null)
         {
             container.Swap(srcIndex, containerBase, index);
-            containerBase.GetComponent<BoxUI>()?.UpdateGrids();
-            container.GetComponent<BoxUI>().UpdateGrids();
+            containerBase.GetComponentInChildren<BoxUI>().UpdateGrids();
+            container.GetComponentInChildren<BoxUI>().UpdateGrids();
         }
-
     }
 }

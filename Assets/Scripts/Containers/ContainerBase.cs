@@ -161,12 +161,12 @@ public class ContainerBase : MonoBehaviour, IWeighted
 
     public void DebugPrint()
     {
-        string[] contents = Enumerable
-            .Range(0, Capacity) // only within capacity
-            .Select(i => _slots[i] == null ? "_" : _slots[i]!.Name)
-            .ToArray();
+        // string[] contents = Enumerable
+        //     .Range(0, Capacity) // only within capacity
+        //     .Select(i => _slots[i] == null ? "_" : _slots[i]!.Name)
+        //     .ToArray();
 
-        Debug.Log($"{Name}({ItemCount}): [{string.Join(",", contents)}]");
+        // Debug.Log($"{Name}({ItemCount}): [{string.Join(",", contents)}]");
     }
 
     public virtual void UpdateInternals()

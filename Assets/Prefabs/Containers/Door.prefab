@@ -113,6 +113,56 @@ PrefabInstance:
       propertyPath: _dumpAllButton
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9019663714634802003, guid: 5ca5b6d0aaa08f7479bf9e2875773f46,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019663714634802003, guid: 5ca5b6d0aaa08f7479bf9e2875773f46,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9114091451392616516, guid: 5ca5b6d0aaa08f7479bf9e2875773f46,
+        type: 3}
+      propertyPath: _panel
+      value: 
+      objectReference: {fileID: 7704949385383908756}
+    - target: {fileID: 9114091451392616516, guid: 5ca5b6d0aaa08f7479bf9e2875773f46,
+        type: 3}
+      propertyPath: _container
+      value: 
+      objectReference: {fileID: 7324556662267760955}
+    - target: {fileID: 9114091451392616516, guid: 5ca5b6d0aaa08f7479bf9e2875773f46,
+        type: 3}
+      propertyPath: _countText
+      value: 
+      objectReference: {fileID: 9097494578981843307}
+    - target: {fileID: 9114091451392616516, guid: 5ca5b6d0aaa08f7479bf9e2875773f46,
+        type: 3}
+      propertyPath: _indexIcon
+      value: 
+      objectReference: {fileID: 1726165126241788588}
+    - target: {fileID: 9114091451392616516, guid: 5ca5b6d0aaa08f7479bf9e2875773f46,
+        type: 3}
+      propertyPath: _gridParent
+      value: 
+      objectReference: {fileID: 7705026985763221302}
+    - target: {fileID: 9114091451392616516, guid: 5ca5b6d0aaa08f7479bf9e2875773f46,
+        type: 3}
+      propertyPath: _weightText
+      value: 
+      objectReference: {fileID: 834685021755473347}
+    - target: {fileID: 9114091451392616516, guid: 5ca5b6d0aaa08f7479bf9e2875773f46,
+        type: 3}
+      propertyPath: _addAllButton
+      value: 
+      objectReference: {fileID: 4103337228361330292}
+    - target: {fileID: 9114091451392616516, guid: 5ca5b6d0aaa08f7479bf9e2875773f46,
+        type: 3}
+      propertyPath: _dumpAllButton
+      value: 
+      objectReference: {fileID: 7746056499787017828}
     m_RemovedComponents:
     - {fileID: 5955989523126670749, guid: 5ca5b6d0aaa08f7479bf9e2875773f46, type: 3}
     - {fileID: 5785734559292470310, guid: 5ca5b6d0aaa08f7479bf9e2875773f46, type: 3}
@@ -427,6 +477,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4103337228361330292 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 554663018970247390, guid: fa8fee14752a4f74b9796c139c385ecf,
+    type: 3}
+  m_PrefabInstance: {fileID: 4558615253790269098}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &7635050544079442638 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6248272170655059044, guid: fa8fee14752a4f74b9796c139c385ecf,
@@ -445,6 +507,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4558615253790269098}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7746056499787017828 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6069991599842111694, guid: fa8fee14752a4f74b9796c139c385ecf,
+    type: 3}
+  m_PrefabInstance: {fileID: 4558615253790269098}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &9097494578981843307 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4684798549909155777, guid: fa8fee14752a4f74b9796c139c385ecf,

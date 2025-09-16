@@ -1269,6 +1269,52 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1567722514}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &477385302 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2376878236324704815, guid: 967ab88548d4d764b89ce578f6da3af3,
+    type: 3}
+  m_PrefabInstance: {fileID: 975171085}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &477385307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477385302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76891b3b532f84acaaeed44c357bd00c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  ApplyDamageOnTriggerEnter: 1
+  ApplyDamageOnTriggerStay: 1
+  MinDamageCaused: 0
+  MaxDamageCaused: 0
+  TypedDamages: []
+  DamageCausedKnockbackType: 1
+  DamageCausedKnockbackDirection: 0
+  DamageCausedKnockbackForce: {x: 10, y: 2}
+  InvincibilityDuration: 0.5
+  RepeatDamageOverTime: 0
+  AmountOfRepeats: 3
+  DurationBetweenRepeats: 1
+  DamageOverTimeInterruptible: 1
+  RepeatedDamageType: {fileID: 0}
+  DamageTakenEveryTime: 0
+  DamageTakenDamageable: 0
+  DamageTakenNonDamageable: 0
+  DamageTakenKnockbackType: 0
+  DamageTakenKnockbackDirection: 0
+  DamageTakenKnockbackForce: {x: 0, y: 0}
+  DamageTakenInvincibilityDuration: 0.5
+  HitDamageableFeedback: {fileID: 0}
+  HitNonDamageableFeedback: {fileID: 0}
+  FreezeFramesOnHitDuration: 0
+  Owner: {fileID: 0}
 --- !u!1 &495346516
 GameObject:
   m_ObjectHideFlags: 0
@@ -2173,6 +2219,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 2376878236324704815, guid: 967ab88548d4d764b89ce578f6da3af3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 477385307}
   m_SourcePrefab: {fileID: 100100000, guid: 967ab88548d4d764b89ce578f6da3af3, type: 3}
 --- !u!1001 &976775684
 PrefabInstance:
@@ -2269,6 +2319,11 @@ PrefabInstance:
       propertyPath: '_containers.Array.data[4]'
       value: 
       objectReference: {fileID: 669984243}
+    - target: {fileID: 1698419915948227913, guid: ccd8afd6969c948438b873bd52c919c6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -28.000137
+      objectReference: {fileID: 0}
     - target: {fileID: 2246952047322270387, guid: ccd8afd6969c948438b873bd52c919c6,
         type: 3}
       propertyPath: m_Name
